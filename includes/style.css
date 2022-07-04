@@ -1,10 +1,93 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100%;
+	font-family: 'League Spartan', sans-serif;
+	font-weight: 300;
+	background-color: #EFFAFA;
+}
+
+a, a:visited {
+    text-decoration: none;
+}
+
+#header {
+	display: flex;
+	background-color: #5CA5A5;
+}
+
+#header img {
+	width: 100%;
+}
+
+#main {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 80%;
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	margin: 10px 0px;
+	padding: 20px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: -1px 1px 8px #d3e2e2;
+}
 
 
-.attribution { 
-    font-size: 11px;
-    text-align: center;
+.card-description {
+	width: 50%;
+	display: grid;
+	grid-template-areas:
+		'img header'
+		'img main'
+		'img bottom';
+	gap: 5px 20px;
+	align-items: center;
+	justify-content: flex-start;
+
+}
+
+.card-labels {
+	width: 50%;
+	text-align: right;
+}
+
+.cd-img {
+	grid-area: img;
+}
+
+.cd-header {
+	grid-area: header;
+}
+
+.cd-main {
+	grid-area: main;
+	font-weight: 700;
+}
+
+.cd-bottom {
+	grid-area: bottom;
+}
+
+.featured {
+	border-left: 5px solid #5CA5A5;
+}
+
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: #7C8F8F;
+    font-weight: 500;
 }
