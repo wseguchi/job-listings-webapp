@@ -24,6 +24,22 @@ a, a:visited {
 	width: 100%;
 }
 
+#filter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: auto;
+	width: 80%;
+	height: 50px;
+	position: relative;
+	top: -25px;
+	padding: 10px 20px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: -1px 1px 8px rgba(92, 165, 165, 0.3);
+	
+}
+
 #main {
 	display: flex;
 	flex-direction: column;
@@ -39,7 +55,7 @@ a, a:visited {
 	padding: 10px 20px;
 	background-color: white;
 	border-radius: 5px;
-	box-shadow: -1px 1px 8px #d3e2e2;
+	box-shadow: -1px 1px 8px rgba(92, 165, 165, 0.3);
 }
 
 
@@ -99,7 +115,7 @@ a, a:visited {
 .label {
 	background-color: #EFF6F6;
 	color: #5CA5A5;
-	font-size: .8em;
+	font-size: .9em;
 	font-weight: 700;
 	padding: 7px;
 	border-radius: 5px;
@@ -141,6 +157,61 @@ a, a:visited {
 	font-size: .7em;
 }
 
+.inactive {
+	display: none !important;
+}
+
+.filter-clear {
+	color: #5CA5A5;
+	justify-content: flex-end;
+	font-size: .9em;
+	cursor: pointer;
+}
+
+.filter-clear:hover {
+	text-decoration: underline;
+}
+
+.fl-button {
+	display: flex;
+	align-items: center;
+	height: 30px;
+	font-size: .9em;
+	font-weight: 700;
+	border-radius: 5px;
+}
+
+.fl-text {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	background-color: #EFF6F6;
+	color: #5CA5A5;
+	padding: 7px;
+	border-radius: 5px 0px 0px 5px;
+	cursor: default;
+}
+
+.fl-close {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	color: white;
+	background-color: #5CA5A5;
+	padding: 7px;
+	border-radius: 0px 5px 5px 0px;
+	cursor: pointer;
+}
+
+.fl-close:hover {
+	background-color: #2B3939;
+}
+
+.fl-close img {
+	width: 12px;
+	height: 12px;
+	margin: auto 2px;
+}
 
 .attribution {
 	font-size: 11px;

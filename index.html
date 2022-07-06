@@ -3,20 +3,31 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- displays site properly based on user's device -->
     <link rel="stylesheet" href="./includes/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;500;700&display=swap" rel="stylesheet">
+    <script src="./includes/script.js" defer></script>
     <title>Job Listings App</title>
   </head>
   <body>
     <div id="header">
       <img src="./images/bg-header-desktop.svg">
     </div>
+    <div id="filter">
+      <div class="filter-labels">
+        <div class="fl-button">
+          <div class="fl-text">
+            Front-end
+          </div>
+          <div class="fl-close"><img src="./images/icon-remove.svg"></div>
+        </div>
+      </div>
+      <div class="filter-clear" onclick="clearAllFilters()">Clear</div>
+    </div>
     <div id="main">
-      <div class="card featured">
+      <div id="1" class="card featured" data-role="frontend" data-level="senior" data-lang="html css javascript">
         <!-- Item Start -->
         <div class="card-description">
           <div class="cd-img">
@@ -40,17 +51,17 @@
         </div>
         <div class="card-labels">
           <!-- Role -->
-          <div class="label">Frontend</div>
+          <div class="label" onclick="getDataInfo('role', 'frontend')">Frontend</div>
           <!-- Level -->
-          <div class="label">Senior</div>
+          <div class="label" onclick="getDataInfo('level', 'senior')">Senior</div>
           <!-- Languages -->
-          <div class="label">HTML</div>
-          <div class="label">CSS</div>
-          <div class="label">JavaScript</div>
+          <div class="label" onclick="getDataInfo('lang', 'html')">HTML</div>
+          <div class="label" onclick="getDataInfo('lang', 'css')">CSS</div>
+          <div class="label" onclick="getDataInfo('lang', 'javascript')">JavaScript</div>
           <!-- Item End -->
         </div>
       </div>
-      <div class="card featured">
+      <div id="2" class="card featured" data-role="fullstack" data-level="midweight" data-lang="python" data-tools="react">
         <!-- Item Start -->
         Manage
         New!
@@ -69,7 +80,7 @@
         React
         <!-- Item End -->
       </div>
-      <div class="card">
+      <div id="3" class="card" data-role="frontend" data-level="junior" data-lang="javascript" data-tools="react sass">
         <!-- Item Start -->
         Account
         New!
@@ -88,7 +99,7 @@
         Sass
         <!-- Item End -->
       </div>
-      <div class="card">
+      <div id="4" class="card" data-role="frontend" data-level="junior" data-lang="css javascript">
         <!-- Item Start -->
         MyHome
         Junior Frontend Developer
@@ -104,7 +115,7 @@
         JavaScript
         <!-- Item End -->
       </div>
-      <div class="card">
+      <div id="5" class="card" data-role="fullstack" data-level="midweight" data-lang="javascript ruby" data-tools="sass">
         <!-- Item Start -->
         Loop Studios
         Software Engineer
@@ -122,7 +133,7 @@
         Sass
         <!-- Item End -->
       </div>
-      <div class="card">
+      <div id="6" class="card" data-role="backend" data-level="junior" data-lang="ruby" data-tools="ror">
         <!-- Item Start -->
         FaceIt
         Junior Backend Developer
@@ -139,7 +150,7 @@
         RoR
         <!-- Item End -->
       </div>
-      <div class="card">
+      <div id="7" class="card" data-role="frontend" data-level="junior" data-lang="html javascript" data-tools="sass">
         <!-- Item Start -->
         Shortly
         Junior Developer
@@ -157,7 +168,7 @@
         Sass
         <!-- Item End -->
       </div>
-      <div class="card">
+      <div id="8" class="card" data-role="frontend" data-level="junior" data-lang="javascript" data-tools="vue sass">
         <!-- Item Start -->
         Insure
         Junior Frontend Developer
@@ -175,7 +186,7 @@
         Sass
         <!-- Item End -->
       </div>
-      <div class="card">
+      <div id="9" class="card" data-role="fullstack" data-level="midweight" data-lang="javascript python" data-tools="django">
         <!-- Item Start -->
         Eyecam Co.
         Full Stack Engineer
@@ -193,7 +204,7 @@
         Django
         <!-- Item End -->
       </div>
-      <div class="card">
+      <div id="10" class="card" data-role="frontend" data-level="junior" data-lang="javascript" data-tools="react sass">
         <!-- Item Start -->
         The Air Filter Company
         Front-end Dev
