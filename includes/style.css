@@ -179,10 +179,6 @@ a:visited {
 	gap: 10px;
 }
 
-.fl-text {
-	text-transform: capitalize;
-}
-
 .filter-clear {
 	color: #5CA5A5;
 	justify-content: flex-end;
@@ -209,6 +205,7 @@ a:visited {
 	align-items: center;
 	background-color: #EFF6F6;
 	color: #5CA5A5;
+	text-transform: capitalize;
 	padding: 7px;
 	border-radius: 5px 0px 0px 5px;
 	cursor: default;
@@ -236,6 +233,7 @@ a:visited {
 }
 
 .attribution {
+	margin: 15px auto;
 	font-size: 11px;
 	text-align: center;
 	font-weight: 100;
@@ -246,7 +244,64 @@ a:visited {
 	font-weight: 300;
 }
 
-.tippy-box[data-theme~='tomato'] {
+.tippy-box[data-theme~='green'] {
 	background-color: #5CA5A5;
 	color: white;
-  }
+}
+
+@media only screen and (max-width: 820px) {
+	#main {
+		width: 90%;
+	}
+
+	@media only screen and (max-width: 620px) {
+		.card {
+			flex-wrap: wrap;
+			margin-bottom: 25px;
+		}
+
+		.card-labels {
+			width: 100%;
+			margin: 15px 0px 0px 0px;
+			padding: 15px 0px;
+			border-top: 1px solid #7C8F8F;
+		}
+
+		.card-description {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 10px 20px;
+		}
+
+		.cd-img img {
+			width: 58px;
+		}
+
+		.cd-img {
+			position: relative;
+			top: -35px;
+			margin-bottom: -35px;
+		}
+
+		#filter {
+			height: auto;
+			width: 90%;
+			padding: 10px;
+		}
+
+		.filter-labels {
+			flex-wrap: wrap;
+
+		}
+
+		.fl-button {
+			font-size: .8em;
+			height: 26px;
+		}
+
+		.fl-close img {
+			width: 10px;
+			height: 10px;
+			margin: auto 2px;
+		}

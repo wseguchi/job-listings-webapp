@@ -162,11 +162,11 @@ function removeFilterAndLabel(dataType, dataValue) {
 	}
 }
 
-
 tippy('#main', {
 	content: 'Click on the lables to filter results!',
 	offset: [-10, -20],
 	placement: 'top-end',
 	arrow: false,
-	theme: 'tomato'
-  });
+	theme: 'green',
+	showOnCreate: true,
+});
