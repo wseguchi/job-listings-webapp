@@ -26,6 +26,7 @@ a:visited {
 }
 
 #filter {
+	visibility: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -38,7 +39,15 @@ a:visited {
 	background-color: white;
 	border-radius: 5px;
 	box-shadow: -1px 1px 8px rgba(92, 165, 165, 0.3);
+	opacity: 0;
+	transition: visibility 1s, opacity 0.3s linear;
 
+}
+
+.filter-box-transition {
+	visibility: visible !important;
+	opacity: 1 !important;
+	transition: visibility 0s, opacity 0.3s linear;
 }
 
 #main {
@@ -236,3 +245,8 @@ a:visited {
 	color: #7C8F8F;
 	font-weight: 300;
 }
+
+.tippy-box[data-theme~='tomato'] {
+	background-color: #5CA5A5;
+	color: white;
+  }

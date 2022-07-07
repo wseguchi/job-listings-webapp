@@ -17,7 +17,7 @@ function loadMainDiv() {
 	for (let i = 0; i < data.length; i++) {
 
 		// Inject HTML into Main DIV
-		document.getElementById('main').innerHTML += '<div id="' + data[i].id + '" class="card" data-role="' + data[i].role.toLowerCase() + '" data-level="' + data[i].level.toLowerCase() + '" data-language="languages" data-tools="tools"> <div class="card-description"> <div class="cd-img"> <img src="' + data[i].logo + '"> </div> <div class="cd-header"> <div class="cd-h-company-name">' + data[i].company + '</div> </div> <div class="cd-main"> ' + data[i].position + ' </div> <div class="cd-bottom"> <div class="cd-b-date">' + data[i].postedAt + '</div> <div class="circle">&#9679;</div> <div class="cd-b-type">' + data[i].contract + '</div> <div class="circle">&#9679;</div> <div clas="cd-b-place">' + data[i].location + '</div> </div> </div> <div class="card-labels"> </div> </div>';
+		document.getElementById('main').innerHTML += '<div id="' + data[i].id + '" class="card" data-role="' + data[i].role.toLowerCase() + '" data-level="' + data[i].level.toLowerCase() + '" data-language="languages" data-tools="tools"> <div class="card-description"> <div class="cd-img"> <img src="' + data[i].logo + '"> </div> <div class="cd-header"> <div class="cd-h-company-name">' + data[i].company + '</div> </div> <div class="cd-main"> ' + data[i].position + ' </div> <div class="cd-bottom"> <div class="cd-b-date">' + data[i].postedAt + '</div> <div class="circle">&#9679;</div> <div class="cd-b-type">' + data[i].contract + '</div> <div class="circle">&#9679;</div> <div clas="cd-b-place">' + data[i].location + '</div> </div> </div> <div class="card-labels"></div> </div>';
 
 		// 'NEW' sticker
 		if (data[i].new === true) {
@@ -66,8 +66,10 @@ function getDataInfo(dataType, dataValue) {
 			card.classList.add(dataType + '-inactive');
 		}
 	}
+	document.getElementById('filter').classList.add('filter-box-transition');
 	addLabeltoFilterBox(dataType, dataValue);
 }
+
 
 function clearAllFilters() {
 	var inactiveDivs = document.getElementsByClassName('card');
@@ -80,6 +82,7 @@ function clearAllFilters() {
 
 	var container = document.getElementById('filter_labels_id');
 	container.replaceChildren();
+	document.getElementById('filter').classList.remove('filter-box-transition');
 }
 
 
@@ -153,4 +156,17 @@ function removeFilterAndLabel(dataType, dataValue) {
 	for (var element of elementList) {
 		element.remove();
 	}
+
+	if (document.getElementById('filter').textContent.trim() == 'Clear') {
+		document.getElementById('filter').classList.remove('filter-box-transition');
+	}
 }
+
+
+tippy('#main', {
+	content: 'Click on the lables to filter results!',
+	offset: [-10, -20],
+	placement: 'top-end',
+	arrow: false,
+	theme: 'tomato'
+  });
