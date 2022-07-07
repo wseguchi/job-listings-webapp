@@ -1,3 +1,62 @@
+let data;
+
+document.addEventListener("DOMContentLoaded", function(e) {
+
+	async function getDataAsync() {
+		let response = await fetch('data.json');
+		data = await response.json();
+		return data;
+	}
+
+	getDataAsync()
+		.then(data => loadMainDiv());
+});
+
+function loadMainDiv() {
+
+	for (let i = 0; i < data.length; i++) {
+
+		// Inject HTML into Main DIV
+		document.getElementById('main').innerHTML += '<div id="' + data[i].id + '" class="card" data-role="' + data[i].role.toLowerCase() + '" data-level="' + data[i].level.toLowerCase() + '" data-language="languages" data-tools="tools"> <div class="card-description"> <div class="cd-img"> <img src="' + data[i].logo + '"> </div> <div class="cd-header"> <div class="cd-h-company-name">' + data[i].company + '</div> </div> <div class="cd-main"> ' + data[i].position + ' </div> <div class="cd-bottom"> <div class="cd-b-date">' + data[i].postedAt + '</div> <div class="circle">&#9679;</div> <div class="cd-b-type">' + data[i].contract + '</div> <div class="circle">&#9679;</div> <div clas="cd-b-place">' + data[i].location + '</div> </div> </div> <div class="card-labels"> </div> </div>';
+
+		// 'NEW' sticker
+		if (data[i].new === true) {
+			document.getElementsByClassName('cd-header')[i].innerHTML += '<div class="cd-h-new">New!</div>';
+		};
+
+		// 'FEATURED' sticker and left border
+		if (data[i].featured === true) {
+			document.getElementsByClassName('cd-header')[i].innerHTML += '<div class="cd-h-featured">Featured</div>';
+			document.getElementsByClassName('card')[i].classList.add('featured');
+
+		};
+
+		// Label - Role
+		document.getElementsByClassName('card-labels')[i].innerHTML += '<div class="label" onclick="getDataInfo(\'role\', \'' + data[i].role.toLowerCase() + '\')">' + data[i].role + '</div>';
+
+		// Label - Level
+		document.getElementsByClassName('card-labels')[i].innerHTML += '<div class="label" onclick="getDataInfo(\'level\', \'' + data[i].level.toLowerCase() + '\')">' + data[i].level + '</div>';
+
+		// Label - Languages
+		var languagesList = '';
+		for (lang of data[i].languages) {
+			languagesList = languagesList + lang.toLowerCase() + ' ';
+			document.getElementsByClassName('card-labels')[i].innerHTML += '<div class="label" onclick="getDataInfo(\'language\', \'' + lang.toLowerCase() + '\')">' + lang + '</div>';
+		};
+		document.getElementsByClassName('card')[i].setAttribute('data-language', languagesList.trim());
+
+		// Label - Tools
+		var toolsList = '';
+		for (tool of data[i].tools) {
+			toolsList = toolsList + tool.toLowerCase() + ' ';
+			document.getElementsByClassName('card-labels')[i].innerHTML += '<div class="label" onclick="getDataInfo(\'tools\', \'' + tool.toLowerCase() + '\')">' + tool + '</div>';
+		};
+		document.getElementsByClassName('card')[i].setAttribute('data-tools', toolsList.trim());
+	};
+
+
+}
+
 function getDataInfo(dataType, dataValue) {
 	var cardList = document.querySelectorAll('[data-' + dataType + ']');
 	for (var card of cardList) {
@@ -15,7 +74,7 @@ function clearAllFilters() {
 	for (var div of inactiveDivs) {
 		div.classList.remove('role-inactive');
 		div.classList.remove('level-inactive');
-		div.classList.remove('lang-inactive');
+		div.classList.remove('language-inactive');
 		div.classList.remove('tools-inactive');
 	}
 
@@ -89,29 +148,6 @@ function removeFilterAndLabel(dataType, dataValue) {
 			}
 		}
 	}
-
-
-	//	if (!attributeList.includes(dataValue)) {
-	//		card.classList.add("inactive");
-	//	}	
-
-
-
-
-
-
-	//while (cardList.length > 0) {
-	//	for (var card of cardList) {
-	//		attribute = card.getAttribute('data-'+ dataType);
-	//		console.log(attribute);
-	//		attributeList = attribute.split(' ');
-	//		console.log(attributeList);
-	//		if (!attributeList.includes(dataValue)) {
-	//			card.classList.remove('inactive');
-	//		}
-	//	}
-	//}
-	//console.log(cardList);
 
 	var elementList = document.querySelectorAll('[data-f-' + dataType + '=' + dataValue + ']');
 	for (var element of elementList) {
