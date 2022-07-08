@@ -162,9 +162,9 @@ function removeFilterAndLabel(dataType, dataValue) {
 	}
 }
 
-tippy('#main', {
+tippy('#filter', {
 	content: 'Click on the lables to filter results!',
-	offset: [-10, -20],
+	offset: [-10, -100],
 	placement: 'top-end',
 	arrow: false,
 	theme: 'green',
