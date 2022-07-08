@@ -169,4 +169,5 @@ tippy('#main', {
 	arrow: false,
 	theme: 'green',
 	showOnCreate: true,
+	trigger: 'manual'
 });
