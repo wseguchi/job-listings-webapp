@@ -17,7 +17,7 @@ function loadMainDiv() {
 	for (let i = 0; i < data.length; i++) {
 
 		// Inject HTML into Main DIV
-		document.getElementById('main').innerHTML += '<div id="' + data[i].id + '" class="card" data-role="' + data[i].role.toLowerCase() + '" data-level="' + data[i].level.toLowerCase() + '" data-language="languages" data-tools="tools"> <div class="card-description"> <div class="cd-img"> <img src="' + data[i].logo + '"> </div> <div class="cd-header"> <div class="cd-h-company-name">' + data[i].company + '</div> </div> <div class="cd-main"> ' + data[i].position + ' </div> <div class="cd-bottom"> <div class="cd-b-date">' + data[i].postedAt + '</div> <div class="circle">&#9679;</div> <div class="cd-b-type">' + data[i].contract + '</div> <div class="circle">&#9679;</div> <div clas="cd-b-place">' + data[i].location + '</div> </div> </div> <div class="card-labels"></div> </div>';
+		document.getElementById('main').innerHTML += `<div id="${data[i].id}" class="card" data-role="${data[i].role.toLowerCase()}" data-level="${data[i].level.toLowerCase()}" data-language="languages" data-tools="tools"> <div class="card-description"> <div class="cd-img"> <img src="${data[i].logo}"> </div> <div class="cd-header"> <div class="cd-h-company-name">${data[i].company}</div> </div> <div class="cd-main">${data[i].position}</div> <div class="cd-bottom"> <div class="cd-b-date">${data[i].postedAt}</div> <div class="circle">&#9679;</div> <div class="cd-b-type">${data[i].contract}</div> <div class="circle">&#9679;</div> <div clas="cd-b-place">${data[i].location}</div> </div> </div> <div class="card-labels"></div> </div>`;
 
 		// 'NEW' sticker
 		if (data[i].new === true) {
